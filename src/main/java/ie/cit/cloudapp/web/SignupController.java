@@ -23,7 +23,7 @@ public class SignupController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public void createNewPlaye(Model model, @RequestParam String firstName,
+	public void createNewPlayer(Model model, @RequestParam String firstName,
 			@RequestParam("surname") String lastName, @RequestParam int age) {
 		Player player = new Player();
 		player.setFirstName(firstName);
@@ -34,10 +34,11 @@ public class SignupController {
 		model.addAttribute("players", playerRepository.getPlayers());
 	}
 
-	@RequestMapping(method = RequestMethod.POST)
-	public void deletePlaye(Model model, @RequestParam int playerIndex) {
+	
+	//@RequestMapping(method = RequestMethod.POST)
+	//public void deletePlayer(Model model, @RequestParam int playerIndex) {
 		// TODO implement player removal
-		model.addAttribute("players", playerRepository.getPlayers());
-	}
+		//model.addAttribute("players", playerRepository.getPlayers());
+	//}
 
 }
