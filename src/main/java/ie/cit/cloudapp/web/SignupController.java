@@ -35,10 +35,10 @@ public class SignupController {
 	}
 
 	
-	//@RequestMapping(method = RequestMethod.POST)
-	//public void deletePlayer(Model model, @RequestParam int playerIndex) {
-		// TODO implement player removal
-		//model.addAttribute("players", playerRepository.getPlayers());
-	//}
+	@RequestMapping(method = RequestMethod.DELETE)
+	public void deletePlayer(Model model, @RequestParam int playerId) {
+		playerRepository.getPlayers().remove(playerId - 1);
+		model.addAttribute("players", playerRepository.getPlayers());
+	}
 
 }

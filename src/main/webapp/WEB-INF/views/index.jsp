@@ -56,7 +56,7 @@
 						<li>
 							<h2>Categories</h2>
 							<ul>
-								<li><a href="signup.jsp">Sign Up</a></li>
+								<li><a href="signup.html">Sign Up</a></li>
 								<li><a href="#">Next Match</a></li>
 								<li><a href="#">The Teams</a></li>
 								<li><a href="#">Man of the Match Hall of Fame</a></li>

@@ -56,10 +56,13 @@
 								</c:forEach>
 								<br />
 								<h2>Sign Up Form</h2>
-								<form method="post">
-									First Name: <input name="firstName"><br /> Surname: <input
-										name="surname"><br /> Age: <input name="age"><br />
-									<input type="submit">
+								<form method="post"><table>
+									<tr><td>First Name: </td><td><input name="firstName"></td></tr> 
+									<tr><td>Surname: </td><td><input name="surname"></td></tr>
+									<tr><td>Age: </td><td><input name="age"></td></tr>
+									<tr><td>Team: </td><td>Red<input type="radio" name="team" value="Red"> Green <input type="radio" name="team" value="Green"></td></tr>
+									<tr><td><input type="submit"></td></tr>
+									</table>
 								</form>
 							</div>
 						</div>
