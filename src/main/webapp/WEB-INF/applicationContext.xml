@@ -10,9 +10,13 @@
 	<bean id="playerPlayer" class="ie.cit.cloudapp.PlayerRepository">
 	</bean>
 
-	<jdbc:embedded-database type="H2" id="dataSource"/>
+	<jdbc:embedded-database type="H2" id="playerData"/>
 
-	<bean class="org.h2.tools.Server" factory-method="createWebServer" 
+	<jdbc:initialize-database data-source="playerData">
+		<jdbc:script location="classpath:db.sql" />
+	</jdbc:initialize-database>
+
+	<bean class="org.h2.tools.Server" factory-method="createWebServer"
 	init-method="start" destroy-method="stop">
 	<constructor-arg value="-web,-webPort,8082" />
 	</bean>

@@ -2,6 +2,7 @@ package ie.cit.cloudapp;
 
 public class Player {
 
+	private int id;
 	private String firstName;
 	private String surname;
 	private int age;
@@ -38,5 +39,11 @@ public class Player {
 		this.teamColour = teamColour;
 	}
 
-	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 }
