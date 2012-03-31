@@ -7,7 +7,8 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="playerPlayer" class="ie.cit.cloudapp.PlayerRepository">
+	<bean id="players" class="ie.cit.cloudapp.JdbcPlayerRepository">
+		<constructor-arg ref="playerData" />
 	</bean>
 
 	<jdbc:embedded-database type="H2" id="playerData"/>

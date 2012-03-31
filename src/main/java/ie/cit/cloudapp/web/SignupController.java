@@ -1,5 +1,6 @@
 package ie.cit.cloudapp.web;
 
+import ie.cit.cloudapp.*;
 import ie.cit.cloudapp.Player;
 import ie.cit.cloudapp.PlayerRepository;
 
@@ -15,30 +16,33 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class SignupController {
 
 	@Autowired
-	PlayerRepository playerRepository;
+	JdbcPlayerRepository playerRepository;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public void justShowPage(Model model) {
-		model.addAttribute("players", playerRepository.getPlayers());
+		model.addAttribute("players", playerRepository.getAll());
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
 	public void createNewPlayer(Model model, @RequestParam String firstName,
-			@RequestParam("surname") String lastName, @RequestParam int age) {
+			@RequestParam String surname, @RequestParam String club, 
+			@RequestParam String teamcolour) {
 		Player player = new Player();
 		player.setFirstName(firstName);
-		player.setSurname(lastName);
-		player.setAge(age);
+		player.setSurname(surname);
+		player.setClub(club);
+		player.setTeamColour(teamcolour); //hard code to red for now
 
-		playerRepository.addPlayer(player);
-		model.addAttribute("players", playerRepository.getPlayers());
+		playerRepository.save(player);
+		model.addAttribute("players", playerRepository.getAll());
 	}
 
+	//@RequestParam("surname")
 	
 	@RequestMapping(method = RequestMethod.DELETE)
 	public void deletePlayer(Model model, @RequestParam int playerId) {
-		playerRepository.getPlayers().remove(playerId - 1);
-		model.addAttribute("players", playerRepository.getPlayers());
+		playerRepository.delete(playerId);
+		model.addAttribute("players", playerRepository.getAll());
 	}
 
 }

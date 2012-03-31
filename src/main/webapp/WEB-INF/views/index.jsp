@@ -22,14 +22,12 @@
 		<ul>
 			<li class="current_page_item"><a href="#">Home</a></li>
 			<li><a href="signup.html">Sign Up</a></li>
-			<li><a href="#">About</a></li>
+			<li><a href="#">Admin</a></li>
 			<li><a href="#">Contact</a></li>
 		</ul>
 	</div>
 	<!-- end #menu -->
 	<div id="page">
-		<div id="page-bgtop">
-			<div id="page-bgbtm">
 				<div id="content">
 					<div class="post">
 						<h2 class="title"><a href="#">Welcome to Red vs Green </a></h2>
@@ -47,27 +45,8 @@
 					<div style="clear: both;">&nbsp;</div>
 				</div>
 				<!-- end #content -->
-				<div id="sidebar">
-					<ul>
-						<li>
-							<h2>Latest News</h2>
-							<p>Homepage Launched! Check back here for more news on this app.</p>
-						</li>
-						<li>
-							<h2>Categories</h2>
-							<ul>
-								<li><a href="signup.html">Sign Up</a></li>
-								<li><a href="#">Next Match</a></li>
-								<li><a href="#">The Teams</a></li>
-								<li><a href="#">Man of the Match Hall of Fame</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-				<!-- end #sidebar -->
 				<div style="clear: both;">&nbsp;</div>
-			</div>
-		</div>
+
 	</div>
 	<!-- end #page -->
 

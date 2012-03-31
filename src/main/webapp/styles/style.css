@@ -124,40 +124,6 @@ img.aligncenter {
 	color: #FFFFFF;
 }
 
-/* Search */
-
-#search {
-	float: right;
-	width: 280px;
-	height: 100px;
-	padding: 0;
-}
-
-#search form {
-	height: 41px;
-	margin: 0;
-	padding: 60px 0 0 30px;
-}
-
-#search fieldset {
-	margin: 0;
-	padding: 0;
-	border: none;
-}
-
-#search-text {
-	width: 195px;
-	padding: 6px 10px;
-	border: none;
-	background: #FFFFFF;
-	text-transform: lowercase;
-	font: normal 11px Arial, Helvetica, sans-serif;
-	color: #7F7F81;
-}
-
-#search-submit {
-	display: none;
-}
 
 /* Menu */
 
@@ -218,9 +184,8 @@ img.aligncenter {
 /* Content */
 
 #content {
-	float: right;
 	width: 600px;
-	padding: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 50px;
 }
 
 .post {
@@ -266,89 +231,6 @@ img.aligncenter {
 	text-transform: uppercase;
 	font-size: 10px;
 	color: #FFFFFF;
-}
-
-/* Sidebar */
-
-#sidebar {
-	float: left;
-	width: 240px;
-	padding: 0px 0px 0px 0px;
-}
-
-#sidebar ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-#sidebar li {
-	margin: 0;
-	padding: 0;
-}
-
-#sidebar li ul {
-	margin: 0px 15px;
-	padding-bottom: 30px;
-}
-
-#sidebar li li {
-	padding-left: 20px;
-	line-height: 35px;
-	background: url(images/img01.gif) no-repeat left 12px;
-}
-
-#sidebar li li span {
-	display: block;
-	margin-top: -20px;
-	padding: 0;
-	font-size: 11px;
-	font-style: italic;
-}
-
-#sidebar h2 {
-	height: 38px;
-	margin-bottom: 20px;
-	padding: 12px 0 0 15px;
-	border-bottom: 1px solid #D0D0D0;
-	letter-spacing: -1px;
-	font-size: 24px;
-	color: #F76429;
-}
-
-#sidebar p {
-	margin: 0 0px;
-	padding: 0px 20px 20px 20px;
-	text-align: justify;
-}
-
-#sidebar a {
-	border: none;
-}
-
-#sidebar a:hover {
-	text-decoration: underline;
-}
-
-/* Calendar */
-
-#calendar {
-}
-
-#calendar_wrap {
-	padding: 20px;
-}
-
-#calendar table {
-	width: 100%;
-}
-
-#calendar tbody td {
-	text-align: center;
-}
-
-#calendar #next {
-	text-align: right;
 }
 
 /* Footer */

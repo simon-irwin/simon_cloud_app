@@ -24,16 +24,14 @@
 		<!-- end #header -->
 		<div id="menu">
 			<ul>
-				<li><a href="index.jsp">Home</a></li>
+				<li><a href="index.html">Home</a></li>
 				<li class="current_page_item"><a href="#">Sign Up</a></li>
-				<li><a href="#">About</a></li>
+				<li><a href="#">Admin</a></li>
 				<li><a href="#">Contact</a></li>
 			</ul>
 		</div>
 		<!-- end #menu -->
 		<div id="page">
-			<div id="page-bgtop">
-				<div id="page-bgbtm">
 					<div id="content">
 						<div class="post">
 							<h2 class="title">
@@ -44,53 +42,29 @@
 								&nbsp;&bull;&nbsp;
 							</p>
 							<div class="entry">
-								<h2>List of Current Players</h2>
+								<h3>List of Players</h3>
+								<table border="1" bordercolor="#999393" style="background-color:#FFFFFF" width="400" cellpadding="3" cellspacing="3"><th>First Name</th><th>Surname</th><th>Club</th><th>Team Colour</th>
 								<c:forEach items="${players}" var="player" varStatus="row">
-			 								${player.firstName} 
-									<form method="post">
-										<input name="_method" type="hidden" value="delete"> <input
-											name="playerId" type="hidden" value="${row.count}"> <input
-											type="submit" value="Delete">
-									</form>
-									<br />
+			 					<tr><td> ${player.firstName} </td><td> ${player.surname} </td><td> ${player.club} </td><td> ${player.teamColour} </td></tr> 
 								</c:forEach>
+								</table>
 								<br />
-								<h2>Sign Up Form</h2>
-								<form method="post"><table>
-									<tr><td>First Name: </td><td><input name="firstName"></td></tr> 
-									<tr><td>Surname: </td><td><input name="surname"></td></tr>
-									<tr><td>Age: </td><td><input name="age"></td></tr>
-									<tr><td>Team: </td><td>Red<input type="radio" name="team" value="Red"> Green <input type="radio" name="team" value="Green"></td></tr>
-									<tr><td><input type="submit"></td></tr>
+								<h3>Sign Up Form</h3>
+								<form method="post"><table style="background-color:#FFFFFF" width="400" cellpadding="3" cellspacing="3">
+									<tr><td><b>First Name: </b></td><td><input name="firstName"></td></tr> 
+									<tr><td><b>Surname: </b></td><td><input name="surname"></td></tr>
+									<tr><td><b>Club: </b></td><td><input name="club"></td></tr>
+									<tr><td><b>Team: </b></td><td>Red<input type="radio" name="teamcolour" value="Red"> Green <input type="radio" name="teamcolour" value="Green"></td></tr>
 									</table>
+									<input type="submit">
+									
 								</form>
 							</div>
 						</div>
 						<div style="clear: both;">&nbsp;</div>
 					</div>
 					<!-- end #content -->
-					<div id="sidebar">
-						<ul>
-							<li>
-								<h2>Latest News</h2>
-								<p>Homepage Launched! Check back here for more news on this
-									app.</p>
-							</li>
-							<li>
-								<h2>Categories</h2>
-								<ul>
-									<li><a href="#">Sign Up</a></li>
-									<li><a href="#">Next Match</a></li>
-									<li><a href="#">The Teams</a></li>
-									<li><a href="#">Man of the Match Hall of Fame</a></li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-					<!-- end #sidebar -->
 					<div style="clear: both;">&nbsp;</div>
-				</div>
-			</div>
 		</div>
 		<!-- end #page -->
 

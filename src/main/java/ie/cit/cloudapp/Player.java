@@ -5,7 +5,6 @@ public class Player {
 	private int id;
 	private String firstName;
 	private String surname;
-	private int age;
 	private String club;
 	private String teamColour;
 	public String getFirstName() {
@@ -19,12 +18,6 @@ public class Player {
 	}
 	public void setSurname(String surname) {
 		this.surname = surname;
-	}
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
 	}
 	public String getClub() {
 		return club;

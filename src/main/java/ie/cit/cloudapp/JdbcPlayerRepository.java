@@ -1,5 +1,6 @@
 package ie.cit.cloudapp;
 
+import java.util.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -12,8 +13,8 @@ public class JdbcPlayerRepository {
 
 	private JdbcTemplate jdbcTemplate;
 	
-	public JdbcPlayerRepository(DataSource dataSource) {
-		this.jdbcTemplate = new JdbcTemplate(dataSource);
+	public JdbcPlayerRepository(DataSource playerData) {
+		this.jdbcTemplate = new JdbcTemplate(playerData);
 	}
 	
 	public void save(Player player) {
@@ -26,16 +27,25 @@ public class JdbcPlayerRepository {
 				"select * from PLAYER where id=?", new PlayerMapper(),
 				id);
 	}
+
+	public List<Player> getAll() {
+		return jdbcTemplate.query(
+				"select * from PLAYER", new PlayerMapper());
+	}
+	
+	public void delete(int id) {
+		jdbcTemplate.update("delete from PLAYER where id=?", id);
+	}
 	
 	class PlayerMapper implements RowMapper<Player> {
 
 		public Player mapRow(ResultSet rs, int rowNum) throws SQLException {
 			Player player = new Player();
 			player.setId(rs.getInt("id"));
-			player.setFirstName("fname");
-			player.setSurname("sname");
-			player.setTeamColour("teamcolour");
-			player.setClub("club");
+			player.setFirstName(rs.getString("fname"));
+			player.setSurname(rs.getString("sname"));
+			player.setTeamColour(rs.getString("teamcolour"));
+			player.setClub(rs.getString("club"));
 			return player;
 		}
 	}
