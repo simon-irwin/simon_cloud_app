@@ -26,7 +26,7 @@
 			<ul>
 				<li><a href="index.html">Home</a></li>
 				<li class="current_page_item"><a href="#">Sign Up</a></li>
-				<li><a href="#">Admin</a></li>
+				<li><a href="admin.html">Admin</a></li>
 				<li><a href="#">Contact</a></li>
 			</ul>
 		</div>

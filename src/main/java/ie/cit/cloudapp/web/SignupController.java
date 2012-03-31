@@ -1,8 +1,6 @@
 package ie.cit.cloudapp.web;
 
 import ie.cit.cloudapp.*;
-import ie.cit.cloudapp.Player;
-import ie.cit.cloudapp.PlayerRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("signup")
+@RequestMapping(value={"signup", "admin"})
 public class SignupController {
 
 	@Autowired
@@ -45,4 +43,16 @@ public class SignupController {
 		model.addAttribute("players", playerRepository.getAll());
 	}
 
+	@RequestMapping(method = RequestMethod.PUT)
+	public void updatePlayer(Model model, @RequestParam int playerId) {
+		Player player = playerRepository.get(playerId);
+		if (player.getTeamColour().equalsIgnoreCase("red"))
+			player.setTeamColour("Green");
+		
+		else
+			player.setTeamColour("Red");
+		
+		playerRepository.update(player);
+		model.addAttribute("players", playerRepository.getAll());
+	}
 }

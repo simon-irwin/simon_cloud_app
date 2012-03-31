@@ -37,6 +37,11 @@ public class JdbcPlayerRepository {
 		jdbcTemplate.update("delete from PLAYER where id=?", id);
 	}
 	
+	public void update(Player player) {
+		jdbcTemplate.update("update Player set teamcolour where id=?",
+				player.getTeamColour(), player.getId());
+	}
+	
 	class PlayerMapper implements RowMapper<Player> {
 
 		public Player mapRow(ResultSet rs, int rowNum) throws SQLException {

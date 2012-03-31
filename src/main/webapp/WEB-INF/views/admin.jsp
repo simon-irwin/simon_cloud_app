@@ -20,9 +20,9 @@
 	<!-- end #header -->
 	<div id="menu">
 		<ul>
-			<li class="current_page_item"><a href="#">Home</a></li>
+			<li><a href="index.html">Home</a></li>
 			<li><a href="signup.html">Sign Up</a></li>
-			<li><a href="admin.html">Admin</a></li>
+			<li class="current_page_item"><a href="#">Admin</a></li>
 			<li><a href="#">Contact</a></li>
 		</ul>
 	</div>
@@ -34,11 +34,14 @@
 						<p class="meta">Posted by <a href="#">Administrator</a> on Feb 16, 2012
 							&nbsp;&bull;&nbsp;</p>
 						<div class="entry">
-							<p><img src="styles/images/img03.jpg" width="186" height="186" alt="" class="alignleft border" />
-							Welcome to Reds vs. Greens! The idea of this online Cloud Application was born out of the banter of Wednesday Night Football. Players pledge allegiance to the jersey, be it red or green, and give it their all on the field of battle. The idea of this app is to add to that banter. <a href="signup.html">Create your profile</a>, pledge to your team, play the game. </p>
-						
-						<p>Todays Date: <%= new java.util.Date()%>.</p>
-							
+						<h3>Edit Players</h3>
+						<table border="1" bordercolor="#999393" style="background-color:#FFFFFF" width="400" cellpadding="3" cellspacing="3"><th>First Name</th><th>Surname</th><th>Club</th><th>Team Colour</th><th>Swap Sides</th><th>Delete</th>
+						<c:forEach items="${players}" var="player" varStatus="row">
+	 					<tr><td> ${player.firstName} </td><td> ${player.surname} </td><td> ${player.club} </td><td> ${player.teamColour} </td><td> ${player.teamColour} </td><td> ${player.teamColour} </td>
+	 					<td><form method="post"> <input name="_method" type="hidden" value="put"> <input name="playerId" type="hidden" value="${player.id}"> <input type="submit" value="Swap Team"></form></td>
+	 					<td><form method="post"> <input name="_method" type="hidden" value="delete"> <input name="playerId" type="hidden" value="${player.id}"> <input type="submit" value="Delete"></form></td></tr> 
+						</c:forEach>
+						</table>							
 						
 						</div>
 					</div>
