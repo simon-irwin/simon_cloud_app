@@ -38,7 +38,7 @@ public class JdbcPlayerRepository {
 	}
 	
 	public void update(Player player) {
-		jdbcTemplate.update("update Player set teamcolour where id=?",
+		jdbcTemplate.update("update Player set teamcolour=? where id=?",
 				player.getTeamColour(), player.getId());
 	}
 	

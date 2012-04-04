@@ -1,4 +1,5 @@
-
+<%@ page import="ie.cit.cloudapp.Player"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="keywords" content="" />
@@ -30,14 +31,12 @@
 	<div id="page">
 				<div id="content">
 					<div class="post">
-						<h2 class="title"><a href="#">Welcome to Red vs Green </a></h2>
-						<p class="meta">Posted by <a href="#">Administrator</a> on Feb 16, 2012
-							&nbsp;&bull;&nbsp;</p>
+						<h2 class="title"><a href="#">Administrator </a></h2>
 						<div class="entry">
 						<h3>Edit Players</h3>
 						<table border="1" bordercolor="#999393" style="background-color:#FFFFFF" width="400" cellpadding="3" cellspacing="3"><th>First Name</th><th>Surname</th><th>Club</th><th>Team Colour</th><th>Swap Sides</th><th>Delete</th>
 						<c:forEach items="${players}" var="player" varStatus="row">
-	 					<tr><td> ${player.firstName} </td><td> ${player.surname} </td><td> ${player.club} </td><td> ${player.teamColour} </td><td> ${player.teamColour} </td><td> ${player.teamColour} </td>
+	 					<tr><td> ${player.firstName} </td><td> ${player.surname} </td><td> ${player.club} </td><td> ${player.teamColour} </td>
 	 					<td><form method="post"> <input name="_method" type="hidden" value="put"> <input name="playerId" type="hidden" value="${player.id}"> <input type="submit" value="Swap Team"></form></td>
 	 					<td><form method="post"> <input name="_method" type="hidden" value="delete"> <input name="playerId" type="hidden" value="${player.id}"> <input type="submit" value="Delete"></form></td></tr> 
 						</c:forEach>

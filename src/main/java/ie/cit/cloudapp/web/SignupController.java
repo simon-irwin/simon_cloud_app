@@ -22,10 +22,14 @@ public class SignupController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public void createNewPlayer(Model model, @RequestParam String firstName,
+	public void createNewPlayer(Model model, @RequestParam String username,
+			@RequestParam String password,
+			@RequestParam String firstName,
 			@RequestParam String surname, @RequestParam String club, 
 			@RequestParam String teamcolour) {
 		Player player = new Player();
+		player.setUsername(username);
+		player.setPassword(password);
 		player.setFirstName(firstName);
 		player.setSurname(surname);
 		player.setClub(club);

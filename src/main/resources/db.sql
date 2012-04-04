@@ -1,1 +1,1 @@
-create table PLAYER(id serial, fname varchar, sname varchar, club varchar, teamcolour varchar, primary key(id));
+create table PLAYER(id serial, username varchar, password varchar, fname varchar, sname varchar, club varchar, teamcolour varchar, primary key(id));
