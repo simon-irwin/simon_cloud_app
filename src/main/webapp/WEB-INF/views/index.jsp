@@ -22,8 +22,8 @@
 		<ul>
 			<li class="current_page_item"><a href="#">Home</a></li>
 			<li><a href="signup.html">Sign Up</a></li>
-			<li><a href="admin.html">Admin</a></li>
-			<li><a href="#">Contact</a></li>
+			<li><a href="theplayers.html">Players</a></li>
+			<li><a href="games.html">Games</a></li>
 		</ul>
 	</div>
 	<!-- end #menu -->
@@ -35,11 +35,7 @@
 							&nbsp;&bull;&nbsp;</p>
 						<div class="entry">
 							<p><img src="styles/images/img03.jpg" width="186" height="186" alt="" class="alignleft border" />
-							Welcome to Reds vs. Greens! The idea of this online Cloud Application was born out of the banter of Wednesday Night Football. Players pledge allegiance to the jersey, be it red or green, and give it their all on the field of battle. The idea of this app is to add to that banter. <a href="signup.html">Create your profile</a>, pledge to your team, play the game. </p>
-						
-						<p>Todays Date: <%= new java.util.Date()%>.</p>
-							
-						
+							Welcome to Reds vs. Greens! The idea of this online Cloud Application was born out of the banter of Wednesday Night Football. Players pledge allegiance to the jersey, be it red or green, and give it their all on the field of battle. The idea of this app is to add to that banter. <a href="signup.html">Create your profile</a>, pledge to your team, play the game. </p>						
 						</div>
 					</div>
 					<div style="clear: both;">&nbsp;</div>

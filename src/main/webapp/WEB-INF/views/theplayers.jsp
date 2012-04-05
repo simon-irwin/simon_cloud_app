@@ -1,4 +1,5 @@
 <%@ page import="ie.cit.cloudapp.Player"%>
+<%@ page import="ie.cit.cloudapp.Game"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -23,15 +24,15 @@
 		<ul>
 			<li><a href="index.html">Home</a></li>
 			<li><a href="signup.html">Sign Up</a></li>
-			<li class="current_page_item"><a href="#">Admin</a></li>
-			<li><a href="#">Contact</a></li>
+			<li class="current_page_item"><a href="#">Players</a></li>
+			<li><a href="games.html">Games</a></li>
 		</ul>
 	</div>
 	<!-- end #menu -->
 	<div id="page">
 				<div id="content">
 					<div class="post">
-						<h2 class="title"><a href="#">Administrator </a></h2>
+						<h2 class="title"><a href="#">Players</a></h2>
 						<div class="entry">
 						<h3>Edit Players</h3>
 						<table border="1" bordercolor="#999393" style="background-color:#FFFFFF" width="400" cellpadding="3" cellspacing="3"><th>First Name</th><th>Surname</th><th>Club</th><th>Team Colour</th><th>Swap Sides</th><th>Delete</th>
@@ -41,7 +42,6 @@
 	 					<td><form method="post"> <input name="_method" type="hidden" value="delete"> <input name="playerId" type="hidden" value="${player.id}"> <input type="submit" value="Delete"></form></td></tr> 
 						</c:forEach>
 						</table>							
-						
 						</div>
 					</div>
 					<div style="clear: both;">&nbsp;</div>

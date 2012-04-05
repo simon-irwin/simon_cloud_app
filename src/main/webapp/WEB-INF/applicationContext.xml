@@ -10,6 +10,10 @@
 	<bean id="players" class="ie.cit.cloudapp.JdbcPlayerRepository">
 		<constructor-arg ref="playerData" />
 	</bean>
+	
+	<bean id="games" class="ie.cit.cloudapp.JdbcGameRepository">
+		<constructor-arg ref="playerData" />
+	</bean>
 
 	<jdbc:embedded-database type="H2" id="playerData"/>
 

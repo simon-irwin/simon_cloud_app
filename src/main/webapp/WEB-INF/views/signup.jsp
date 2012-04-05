@@ -26,8 +26,8 @@
 			<ul>
 				<li><a href="index.html">Home</a></li>
 				<li class="current_page_item"><a href="#">Sign Up</a></li>
-				<li><a href="admin.html">Admin</a></li>
-				<li><a href="#">Contact</a></li>
+				<li><a href="theplayers.html">Players</a></li>
+				<li><a href="games.html">Games</a></li>
 			</ul>
 		</div>
 		<!-- end #menu -->
@@ -39,6 +39,7 @@
 							</h2>
 							<div class="entry">
 								<h3>List of Players</h3>
+								<p>Listings correct as of: <%= new java.util.Date()%>.</p>
 								<table border="1" bordercolor="#999393" style="background-color:#FFFFFF" width="400" cellpadding="3" cellspacing="3"><th>First Name</th><th>Surname</th><th>Club</th><th>Team Colour</th>
 								<c:forEach items="${players}" var="player" varStatus="row">
 			 					<tr><td> ${player.firstName} </td><td> ${player.surname} </td><td> ${player.club} </td><td> ${player.teamColour} </td></tr> 
@@ -54,8 +55,7 @@
 									<tr><td><b>Club: </b></td><td><input name="club"></td></tr>
 									<tr><td><b>Team: </b></td><td>Red<input type="radio" name="teamcolour" value="Red"> Green <input type="radio" name="teamcolour" value="Green"></td></tr>
 									</table>
-									<input type="submit">
-									
+									<input type="submit">									
 								</form>
 							</div>
 						</div>
