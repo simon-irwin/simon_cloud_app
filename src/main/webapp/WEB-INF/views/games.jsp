@@ -45,26 +45,34 @@
 						</div>
 						<div class="entry">
 						<h3>Set Winner</h3>
-						<table border="1" bordercolor="#999393" style="background-color:#FFFFFF" width="400" cellpadding="3" cellspacing="3"><th>Game Id</th><th>Date</th><th>Venue</th><th>Winner</th>
-						<c:forEach items="${games}" var="game" varStatus="row">
-	 					<tr><td> ${game.id} </td><td> ${game.date} </td><td> ${game.venue} </td><td> <input name="winner"> </td></tr> 
-						</c:forEach>
-						</table>									
+							<table border="1" bordercolor="#999393" style="background-color:#FFFFFF" width="400" cellpadding="3" cellspacing="3"><th>Game Id</th><th>Date</th><th>Venue</th><th>Winner</th><th>Update</th>
+							<c:forEach items="${games}" var="game" varStatus="row">
+		 					<c:if test="${game.winner eq 'N/A'}">
+		 					<form method="post">
+		 					<input name="_method" type="hidden" value="put"> <input name="gameId" type="hidden" value="${game.id}"> 
+		 					<tr><td> ${game.id} </td><td> ${game.date} </td><td> ${game.venue} </td><td> <input name="winner"></td><td><input type="submit" value="Update"></td></tr> 
+							</form>
+							</c:if>
+							</c:forEach>
+							</table>								
 						</div>
 						<div class="entry">
 						<h3>Upcoming Games</h3>
-						<table border="1" bordercolor="#999393" style="background-color:#FFFFFF" width="400" cellpadding="3" cellspacing="3"><th>Game No.</th><th>Date</th><th>Something Else</th>
+						<table border="1" bordercolor="#999393" style="background-color:#FFFFFF" width="400" cellpadding="3" cellspacing="3"><th>Game No.</th><th>Date</th><th>Venue</th>
 						<c:forEach items="${games}" var="game" varStatus="row">
+	 					<c:if test="${game.winner eq 'N/A'}">
 	 					<tr><td> ${game.id} </td><td> ${game.date} </td><td> ${game.venue} </td></tr>
+	 					</c:if>
 	 					</c:forEach>
 						</table>				
 						</div>
 						<div class="entry">
 						<h3>Historical Games</h3>
-						<table border="1" bordercolor="#999393" style="background-color:#FFFFFF" width="400" cellpadding="3" cellspacing="3"><th>Game No.</th><th>Date</th><th>Winner</th>
-						<c:forEach items="${players}" var="player" varStatus="row">
-	 					<tr><td> ${player.firstName} </td><td> ${player.surname} </td>
-	 					<td><form method="post"> <input name="_method" type="hidden" value="put"> <input name="playerId" type="hidden" value="${player.id}"> <input type="submit" value="Swap Team"></form></td>
+						<table border="1" bordercolor="#999393" style="background-color:#FFFFFF" width="400" cellpadding="3" cellspacing="3"><th>Game No.</th><th>Date</th><th>Venue</th><th>Winner</th>
+						<c:forEach items="${games}" var="game" varStatus="row">
+	 					<c:if test="${game.winner ne 'N/A'}">
+	 					<tr><td> ${game.id} </td><td> ${game.date} </td><td> ${game.venue} </td><td>${game.winner}</td></tr>
+	 					</c:if>
 	 					</c:forEach>
 						</table>				
 						</div>
