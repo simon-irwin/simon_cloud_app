@@ -67,5 +67,17 @@
 			<artifactId>spring-security-taglibs</artifactId>
 			<version>3.1.0.RELEASE</version>
 		</dependency>
+		<dependency>
+			<groupId>org.cloudfoundry</groupId>
+			<artifactId>cloudfoundry-runtime</artifactId>
+			<version>0.8.1</version>
+		</dependency>
 	</dependencies>
+		<repositories>
+		<repository>
+			<id>spring.repo</id>
+			<url>http://maven.springframework.org/milestone</url>
+		</repository>
+	</repositories>
+	
 </project>

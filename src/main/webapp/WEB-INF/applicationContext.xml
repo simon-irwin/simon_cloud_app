@@ -4,7 +4,9 @@
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
 	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:cloud="http://schema.cloudfoundry.org/spring"
 	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
+		http://schema.cloudfoundry.org/spring http://schema.cloudfoundry.org/spring/cloudfoundry-spring-0.8.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
 		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
@@ -32,16 +34,19 @@
 		</security:authentication-provider>
 	</security:authentication-manager>
 
-
-	<jdbc:embedded-database type="H2" id="playerData"/>
-
-	<jdbc:initialize-database data-source="playerData">
+	<jdbc:initialize-database data-source="playerData" ignore-failures="ALL">
 		<jdbc:script location="classpath:db.sql" />
 	</jdbc:initialize-database>
 
-	<bean class="org.h2.tools.Server" factory-method="createWebServer"
-	init-method="start" destroy-method="stop">
-	<constructor-arg value="-web,-webPort,8082" />
-	</bean>
+	<beans profile="cloud">
+		<cloud:data-source id="playerData" service-name="playerdb" />
+	</beans>
+	<beans profile="default">
+		<jdbc:embedded-database type="H2" id="playerData" />
+		<bean class="org.h2.tools.Server" factory-method="createWebServer"
+			init-method="start" destroy-method="stop">
+			<constructor-arg value="-web,-webPort,8082" />
+		</bean>
+	</beans>
 
 </beans>
