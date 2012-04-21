@@ -28,6 +28,7 @@
 			<li><a href="signup.html">Sign Up</a></li>
 			<li><a href="theplayers.html">Players</a></li>
 			<li class="current_page_item"><a href="#">Games</a></li>
+			<li><a href="playerprofile.html">Player Profile</a></li>
 		</ul>
 	</div>
 	<!-- end #menu -->

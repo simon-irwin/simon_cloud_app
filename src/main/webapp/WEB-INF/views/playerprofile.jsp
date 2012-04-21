@@ -1,5 +1,7 @@
 <%@ page import="ie.cit.cloudapp.Player"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="security"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="keywords" content="" />
@@ -25,38 +27,32 @@
 		<div id="menu">
 			<ul>
 				<li><a href="index.html">Home</a></li>
-				<li class="current_page_item"><a href="#">Sign Up</a></li>
+				<li><a href="signup.html">Sign Up</a></li>
 				<li><a href="theplayers.html">Players</a></li>
 				<li><a href="games.html">Games</a></li>
-				<li><a href="playerprofile.html">Player Profile</a></li>
+				<li class="current_page_item"><a href="playerprofile.html">Player Profile</a></li>
 			</ul>
 		</div>
 		<!-- end #menu -->
 		<div id="page">
 					<div id="content">
+						</br><b><a href="j_spring_security_logout">LOGOUT: <security:authentication
+						property="principal.username" /></a></b>
 						<div class="post">
 							<h2 class="title">
-								<a href="#">Sign Up </a>
+								<a href="#">Player Profile </a>
 							</h2>
 							<div class="entry">
-								<h3>List of Players</h3>
-								<p>Listings correct as of: <%= new java.util.Date()%>.</p>
-								<table border="1" bordercolor="#999393" style="background-color:#FFFFFF" width="400" cellpadding="3" cellspacing="3"><th>First Name</th><th>Surname</th><th>Club</th><th>Team Colour</th>
-								<c:forEach items="${players}" var="player" varStatus="row">
-			 					<tr><td> ${player.firstName} </td><td> ${player.surname} </td><td> ${player.club} </td><td> ${player.teamColour} </td></tr> 
-								</c:forEach>
-								</table>
-								<br />
-								<h3>Sign Up Form</h3>
+								<h3>Your Profile</h3>
+								<p>Use the form below to update your profile.</p>
 								<form method="post"><table style="background-color:#FFFFFF" width="400" cellpadding="3" cellspacing="3">
-									<tr><td><b>Username: </b></td><td><input name="username"></td></tr> 
-									<tr><td><b>Password: </b></td><td><input type="password" name="password"></td></tr>
-									<tr><td><b>First Name: </b></td><td><input name="firstName"></td></tr> 
-									<tr><td><b>Surname: </b></td><td><input name="surname"></td></tr>
-									<tr><td><b>Club: </b></td><td><input name="club"></td></tr>
-									<tr><td><b>Team: </b></td><td>Red<input type="radio" name="teamcolour" value="Red"> Green <input type="radio" name="teamcolour" value="Green"></td></tr>
+									<input name="_method" type="hidden" value="put"> <input name="playerId" type="hidden" value="${player.id}"> 
+									<tr><td><b>Username: </b></td><td>${player.username}</td></tr> 
+									<tr><td><b>First Name: </b></td><td><input name="firstName" value="${player.firstName}"></td></tr> 
+									<tr><td><b>Surname: </b></td><td><input name="surname" value="${player.surname}"></td></tr>
+									<tr><td><b>Club: </b></td><td><input name="club" value="${player.club}"></td></tr>
 									</table>
-									<input type="submit">									
+									<input type="submit" value="Update">									
 								</form>
 							</div>
 						</div>

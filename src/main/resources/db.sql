@@ -10,4 +10,4 @@ create table authorities(
 	constraint fk_authorities_users foreign key(username) references users(username));
 	create unique index ix_auth_username on authorities (username,authority);
 INSERT INTO users VALUES ('simon', '42de08860cabc17a86260e70a95b03e5', true);
-INSERT INTO authorities VALUES ('simon', 'ROLE_USER');
+INSERT INTO authorities VALUES ('simon', 'ROLE_ADMIN');

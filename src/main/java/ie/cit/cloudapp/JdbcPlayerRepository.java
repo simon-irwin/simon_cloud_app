@@ -10,6 +10,7 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 public class JdbcPlayerRepository {
 
@@ -20,10 +21,10 @@ public class JdbcPlayerRepository {
 	}
 	
 	public void save(Player player) {
-		jdbcTemplate.update("insert into PLAYER (fname, sname, teamColour, club) values(?,?,?,?)",
-		player.getFirstName(), player.getSurname(), player.getTeamColour(), player.getClub());
-		
 		String hashedPasswd = hashPassword(player.getPassword());
+		
+		jdbcTemplate.update("insert into PLAYER (username, password, fname, sname, teamColour, club) values(?,?,?,?,?,?)",
+		player.getUsername(), hashedPasswd, player.getFirstName(), player.getSurname(), player.getTeamColour(), player.getClub());
 		
 		//insert into users table
 		jdbcTemplate.update("insert into users (username, password, enabled) values (?, ?, true)",
@@ -40,7 +41,16 @@ public class JdbcPlayerRepository {
 				"select * from PLAYER where id=?", new PlayerMapper(),
 				id);
 	}
+	
+	public Player getPlayerLoggedIn() {
+		return jdbcTemplate.queryForObject(
+				"select * from PLAYER where username=?", new PlayerMapper(), getCurrentUser());
+	}
 
+	private String getCurrentUser() {
+		return SecurityContextHolder.getContext().getAuthentication().getName();
+	}
+	
 	public List<Player> getAll() {
 		return jdbcTemplate.query(
 				"select * from PLAYER", new PlayerMapper());
@@ -53,6 +63,11 @@ public class JdbcPlayerRepository {
 	public void update(Player player) {
 		jdbcTemplate.update("update Player set teamcolour=? where id=?",
 				player.getTeamColour(), player.getId());
+	}
+	
+	public void updateProfile(Player player) {
+		jdbcTemplate.update("update Player set fname=?, sname=?, club=? where id=?",
+				player.getFirstName(), player.getSurname(), player.getClub(), player.getId());
 	}
 	
 	//reference: http://workbench.cadenhead.org/news/1428/creating-md5-hashed-passwords-java
@@ -74,6 +89,8 @@ public class JdbcPlayerRepository {
 		public Player mapRow(ResultSet rs, int rowNum) throws SQLException {
 			Player player = new Player();
 			player.setId(rs.getInt("id"));
+			player.setUsername(rs.getString("username"));
+			player.setPassword(rs.getString("password"));
 			player.setFirstName(rs.getString("fname"));
 			player.setSurname(rs.getString("sname"));
 			player.setTeamColour(rs.getString("teamcolour"));
