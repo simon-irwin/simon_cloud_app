@@ -1,4 +1,5 @@
-
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="security"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="keywords" content="" />
@@ -8,6 +9,7 @@
 <link href="styles/style.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 <body>
+	</a>
 <div id="wrapper">
 	<div id="header-wrapper">
 		<div id="header">

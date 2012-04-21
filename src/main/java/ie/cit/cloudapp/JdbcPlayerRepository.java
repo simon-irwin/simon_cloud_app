@@ -1,5 +1,7 @@
 package ie.cit.cloudapp;
 
+import java.security.*;
+import java.math.*;
 import java.util.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,6 +22,17 @@ public class JdbcPlayerRepository {
 	public void save(Player player) {
 		jdbcTemplate.update("insert into PLAYER (fname, sname, teamColour, club) values(?,?,?,?)",
 		player.getFirstName(), player.getSurname(), player.getTeamColour(), player.getClub());
+		
+		String hashedPasswd = hashPassword(player.getPassword());
+		
+		//insert into users table
+		jdbcTemplate.update("insert into users (username, password, enabled) values (?, ?, true)",
+		player.getUsername(), hashedPasswd);
+		
+		//insert into authorities table
+		jdbcTemplate.update("insert into authorities (username, authority) values (?,'ROLE_USER')",
+		player.getUsername());
+		
 	}
 	
 	public Player get(int id) {
@@ -41,6 +54,20 @@ public class JdbcPlayerRepository {
 		jdbcTemplate.update("update Player set teamcolour=? where id=?",
 				player.getTeamColour(), player.getId());
 	}
+	
+	//reference: http://workbench.cadenhead.org/news/1428/creating-md5-hashed-passwords-java
+	public static String hashPassword(String password) {
+		String hashword = null;
+		try {
+		MessageDigest md5 = MessageDigest.getInstance("MD5");
+		md5.update(password.getBytes());
+		BigInteger hash = new BigInteger(1, md5.digest());
+		hashword = hash.toString(16);
+		} catch (NoSuchAlgorithmException nsae) {
+		// ignore
+		}
+		return hashword;
+		}
 	
 	class PlayerMapper implements RowMapper<Player> {
 

@@ -3,8 +3,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:security="http://www.springframework.org/schema/security"
 	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="players" class="ie.cit.cloudapp.JdbcPlayerRepository">
@@ -14,6 +16,19 @@
 	<bean id="games" class="ie.cit.cloudapp.JdbcGameRepository">
 		<constructor-arg ref="playerData" />
 	</bean>
+
+	<security:global-method-security
+		secured-annotations="enabled" />
+		
+	<security:http auto-config="true"><security:intercept-url pattern="/theplayers.html" access="ROLE_USER" /></security:http>
+
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:password-encoder hash="md5" />
+			<security:jdbc-user-service data-source-ref="playerData"/>
+		</security:authentication-provider>
+	</security:authentication-manager>
+
 
 	<jdbc:embedded-database type="H2" id="playerData"/>
 
