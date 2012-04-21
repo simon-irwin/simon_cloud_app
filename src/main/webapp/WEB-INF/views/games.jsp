@@ -1,6 +1,8 @@
 <%@ page import="ie.cit.cloudapp.Player"%>
 <%@ page import="ie.cit.cloudapp.Game"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="security"%>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="keywords" content="" />
@@ -31,6 +33,8 @@
 	<!-- end #menu -->
 	<div id="page">
 				<div id="content">
+				</br><b><a href="j_spring_security_logout">LOGOUT: <security:authentication
+						property="principal.username" /></a></b>
 					<div class="post">
 						<h2 class="title"><a href="#">Games </a></h2>
 						<div class="entry">

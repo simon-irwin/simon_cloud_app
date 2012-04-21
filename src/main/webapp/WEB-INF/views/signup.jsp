@@ -49,7 +49,7 @@
 								<h3>Sign Up Form</h3>
 								<form method="post"><table style="background-color:#FFFFFF" width="400" cellpadding="3" cellspacing="3">
 									<tr><td><b>Username: </b></td><td><input name="username"></td></tr> 
-									<tr><td><b>Password: </b></td><td><input name="password"></td></tr>
+									<tr><td><b>Password: </b></td><td><input type="password" name="password"></td></tr>
 									<tr><td><b>First Name: </b></td><td><input name="firstName"></td></tr> 
 									<tr><td><b>Surname: </b></td><td><input name="surname"></td></tr>
 									<tr><td><b>Club: </b></td><td><input name="club"></td></tr>
