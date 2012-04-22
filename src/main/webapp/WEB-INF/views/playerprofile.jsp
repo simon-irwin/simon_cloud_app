@@ -52,7 +52,7 @@
 									<tr><td><b>Surname: </b></td><td><input name="surname" value="${player.surname}"></td></tr>
 									<tr><td><b>Club: </b></td><td><input name="club" value="${player.club}"></td></tr>
 									</table>
-									<input type="submit" value="Update">									
+									<input type="submit" value="Update Profile">									
 								</form>
 							</div>
 						</div>

@@ -24,6 +24,7 @@
 		
 	<security:http auto-config="true">
 		<security:intercept-url pattern="/theplayers.html" access="ROLE_ADMIN" />
+		<security:intercept-url pattern="/games.html" access="ROLE_ADMIN" />
 		<security:intercept-url pattern="/playerprofile.html" access="ROLE_USER" />
 		<security:intercept-url pattern="/games.html" access="ROLE_USER" />
 	</security:http>
