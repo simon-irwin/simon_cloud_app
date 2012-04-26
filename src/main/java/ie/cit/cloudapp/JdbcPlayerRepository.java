@@ -34,6 +34,8 @@ public class JdbcPlayerRepository {
 		jdbcTemplate.update("insert into authorities (username, authority) values (?,'ROLE_USER')",
 		player.getUsername());
 		
+		int id = jdbcTemplate.queryForInt( "select max(id) from PLAYER" );
+		player.setId(id);
 	}
 	
 	public Player get(int id) {
