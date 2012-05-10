@@ -33,7 +33,7 @@ public class ProfileController {
 		player.setFirstName(firstName);
 		player.setSurname(surname);
 		player.setClub(club);
-		player.setTeamColour(teamcolour); //hard code to red for now
+		player.setTeamColour(teamcolour);
 
 		playerRepository.save(player);
 		model.addAttribute("players", playerRepository.getPlayerLoggedIn());

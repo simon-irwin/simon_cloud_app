@@ -20,6 +20,11 @@ public class JdbcPlayerRepository {
 		this.jdbcTemplate = new JdbcTemplate(playerData);
 	}
 	
+	//Empty constructor for TracingAspect (AOP)
+	//Used to create a proxy
+	JdbcPlayerRepository() {
+	}
+	
 	public void save(Player player) {
 		String hashedPasswd = hashPassword(player.getPassword());
 		
@@ -70,6 +75,10 @@ public class JdbcPlayerRepository {
 	public void updateProfile(Player player) {
 		jdbcTemplate.update("update Player set fname=?, sname=?, club=? where id=?",
 				player.getFirstName(), player.getSurname(), player.getClub(), player.getId());
+		System.out.println("Checking FirstName: " + player.getFirstName());
+		System.out.println("Checking Surame: " + player.getSurname());
+		System.out.println("Checking Club: " + player.getClub());
+		System.out.println("Checking Id: " + player.getId());
 	}
 	
 	//reference: http://workbench.cadenhead.org/news/1428/creating-md5-hashed-passwords-java

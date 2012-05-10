@@ -17,6 +17,11 @@ public class JdbcGameRepository {
 		this.jdbcTemplate = new JdbcTemplate(playerData);
 	}
 	
+	//Empty constructor for TracingAspect (AOP)
+	//Used to create a proxy
+	JdbcGameRepository() {
+	}
+	
 	public void save(Game game) {
 		jdbcTemplate.update("insert into GAME (matchdate, venue, winner) values(?,?,?)",
 		game.getDate(), game.getVenue(), game.getWinner());
